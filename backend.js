@@ -1,5 +1,5 @@
-// String de conexão com o banco 
-// mongodb+srv://murilombarone:<password>@cluster0.vwcc4zd.mongodb.net/?retryWrites=true&w=majority
+require('dotenv').config();
+const appid = process.env.bdd_key;
 
 const express = require('express');
 const cors = require('cors');
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 async function conectarMongo(){
-    await mongoose.connect(`mongodb+srv://murilombarone:98533192@cluster0.vwcc4zd.mongodb.net/?retryWrites=true&w=majority`)
+    await mongoose.connect(`mongodb+srv://${appid}.vwcc4zd.mongodb.net/?retryWrites=true&w=majority`)
 }
 
 const Filme = mongoose.model("Filme", mongoose.Schema({
